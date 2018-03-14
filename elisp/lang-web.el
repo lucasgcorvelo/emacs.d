@@ -1,3 +1,5 @@
+(setq use-package-aways-ensure t)
+
 (use-package web-mode
   :bind (("C-c ]" . emmet-next-edit-point)
          ("C-c [" . emmet-prev-edit-point)
@@ -35,8 +37,8 @@
 
   ;; editing enhancements for web-mode
   ;; https://github.com/jtkDvlp/web-mode-edit-element
-  (use-package web-mode-edit-element
-    :config (add-hook 'web-mode-hook 'web-mode-edit-element-minor-mode))
+  ;; (use-package web-mode-edit-element
+  ;;   :config (add-hook 'web-mode-hook 'web-mode-edit-element-minor-mode))
 
   ;; snippets for HTML
   ;; https://github.com/smihica/emmet-mode

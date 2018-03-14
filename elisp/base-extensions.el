@@ -23,6 +23,10 @@
   (setq-default ediff-highlight-all-diffs 'nil)
   (setq ediff-diff-options "-w"))
 
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
+
 (use-package exec-path-from-shell
   :config
   ;; Add GOPATH to shell
@@ -35,8 +39,11 @@
   :bind
   ("C-=" . er/expand-region))
 
-(use-package flycheck)
-
+(use-package flycheck
+  :defer t
+  :config
+  (setq flycheck-javascript-eslint-executable "eslint_d")
+  (global-flycheck-mode))
 
 (use-package counsel
   :bind
@@ -112,6 +119,7 @@
   ("C-c a" . org-agenda))
 
 (use-package org-projectile
+  :ensure t
   :config
   (org-projectile-per-project)
   (setq org-projectile-projects-file "todo.org"

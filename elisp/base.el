@@ -2,6 +2,7 @@
 (add-to-list 'package-archives
 	     '("melpa" . "https://melpa.org/packages/")
              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
