@@ -72,7 +72,7 @@
 
 ;; Font configuration
 (when (window-system)
-  (set-frame-font "Fira Code-9"))
+  (set-frame-font "Fira Code-8"))
 
 ;; Disable toolbar & menubar
 (menu-bar-mode -1)

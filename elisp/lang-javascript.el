@@ -17,23 +17,6 @@
   (setq js2-indent-level 4)
   (setq js2-basic-offset 4)
 
-  ;; tern :- IDE like features for javascript and completion
-  ;; http://ternjs.net/doc/manual.html#emacs
-  (use-package tern
-    :config
-    (defun my-js-mode-hook ()
-      "Hook for `js-mode'."
-      (set (make-local-variable 'company-backends)
-           '((company-tern company-files))))
-    (add-hook 'js2-mode-hook 'my-js-mode-hook)
-    (add-hook 'js2-mode-hook 'company-mode))
-
-  (add-hook 'js2-mode-hook 'tern-mode)
-
-  ;; company backend for tern
-  ;; http://ternjs.net/doc/manual.html#emacs
-  (use-package company-tern)
-
   ;; Run a JavaScript interpreter in an inferior process window
   ;; https://github.com/redguardtoo/js-comint
   (use-package js-comint
