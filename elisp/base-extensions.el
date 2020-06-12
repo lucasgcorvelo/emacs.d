@@ -135,13 +135,14 @@
 (use-package page-break-lines)
 
 (use-package projectile
-  :config
+  :init
   (setq projectile-known-projects-file
-        (expand-file-name "projectile-bookmarks.eld" temp-dir))
-
-  (setq projectile-completion-system 'ivy)
-
-  (projectile-global-mode))
+        (expand-file-name "projectile-bookmarks.eld" temp-dir)
+        projectile-completion-system 'ivy
+        projectile-globally-ignored-directories '("node_modules" ".git" ".svn" "deps"))
+  :bind-keymap ("C-c p" . projectile-command-map)
+  :bind (("C-," . projectile-find-file))
+  :config (projectile-mode +1))
 
 (use-package recentf
   :config
