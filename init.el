@@ -28,7 +28,7 @@
  '(ivy-mode t)
  '(package-selected-packages
    (quote
-    (hlinum dashboard which-key smartparens expand-region editorconfig lsp-ivy lsp-ui company-lsp all-the-icons-dired all-the-icons ivy-rich counsel ivy yasnippet-snippets undo-tree projectile-ripgrep projectile magit flycheck rjsx-mode emmet-mode company-web web-mode json-mode js2-refactor dracula-theme js2-mode use-package))))
+    (lsp-mode company hlinum dashboard which-key smartparens expand-region editorconfig lsp-ivy lsp-ui company-lsp all-the-icons-dired all-the-icons ivy-rich counsel ivy yasnippet-snippets undo-tree projectile-ripgrep projectile magit flycheck rjsx-mode emmet-mode company-web web-mode json-mode js2-refactor dracula-theme js2-mode use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -46,6 +46,14 @@
   (tool-bar-mode -1))
 (when (  fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
+
+;multiple-cursors
+(use-package multiple-cursors
+  :bind
+  ("C-S-c C-S-c" . mc/edit-lines)
+  ("C->" . mc/mark-next-like-this)
+  ("C-<" . mc/mark-previous-like-this)
+  ("C-c C->" . mc/mark-all-like-this))
 
 ;match set of parens
 (show-paren-mode 1)
@@ -187,7 +195,8 @@
               js2-basic-offset 2)
   :custom ((js2-mode-show-parse-errors nil)
            (js2-mode-show-strict-warnings nil)
-           (js2-bounce-indent-p t))
+           ;(js2-bounce-indent-p t)
+           )
   :config (define-key js2-mode-map (kbd "C-c f") 'eslint-fix-file)
   )
 
@@ -332,7 +341,7 @@
 
 (setq lsp-eslint-server-command
    '("node"
-     "/home/lucas/vscode-eslint/server/out/eslintServer.js"
+     "/home/lucasgcorvelo/vscode-eslint/server/out/eslintServer.js"
      "--stdio"))
 
 ;variables
